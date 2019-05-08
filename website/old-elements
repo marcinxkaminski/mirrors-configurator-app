@@ -1,0 +1,158 @@
+<style>
+
+
+    /* OPTION BOXES */
+    .arrow-box, .option-box {
+        display: inline-block;
+        padding: 0.4em;
+        color: #fff;
+        background-color: #333;
+        opacity: 0.9;
+    }
+
+    .arrow-box{
+        font-size: 0.85em;
+    }
+
+    .arrow-box:hover {
+        opacity: 0.7;
+    }
+
+    .arrow-box button{
+        background: none;
+        color: inherit;
+        border: none;
+    }
+
+    .option-box {
+        opacity: 0.9;
+        min-width: 10em;
+        font-size: 0.8em;
+    }
+    /* END OF OPTION BOXES*/
+</style>
+
+<script>
+    function setVideoIfBigScreen(isMobileOrTablet) {
+        let video = document.getElementById('intro-video');
+        if (isMobileOrTablet) {
+            document.getElementById('intro-video-source').src = pathToResources + '/videos/Roulette_Collection_Ads/RouletteCollection720.mp4';
+        }
+        else {
+            document.getElementById('intro-video-source').src = pathToResources + '/videos/Roulette_Collection_Ads/RouletteCollection2K.mp4';
+        }
+        video.load();
+        video.play();
+    }
+
+    setVideoIfBigScreen(isMobileOrTablet());
+
+    function playProductAnimation(kindOfAnimation, usedIndex = mirrorColorIndex, playBothKinds) {
+        if (kindOfAnimation !== '' && isInitialized && !onMobile) {
+            let video = document.getElementById('customized-product-video');
+            let source = document.getElementById('customized-product-video-source');
+            let promisePlay;
+            let playedOut = false;
+
+            source.src = pathToResources + '/videos/in&out/' + generateNameOfProduct(usedIndex) + kindOfAnimation + '.mp4';
+            video.style.display = 'block';
+            video.load();
+
+            video.addEventListener('ended', function () {
+                playingAnimation = false;
+                if (playBothKinds) {
+                    changeProductPreview("Empty", 0);
+                    playBothKinds = false;
+                    source.src = pathToResources + '/videos/in&out/' + generateNameOfProduct(mirrorColorIndex) + 'In.mp4';
+                    video.load();
+                    video.play();
+                    setTimeout(() => {
+                        playedOut = true;
+                    }, 800);
+                }
+                else {
+                    if (playedOut) {
+                        changeProductPreview('Front', 0);
+                        video.style.display = 'none';
+                        playedOut = false;
+                    }
+                }
+            });
+
+            video.addEventListener('play', function () {
+                playingAnimation = true;
+            })
+
+            promisePlay = video.play();
+
+            if (promisePlay !== undefined) {
+                promisePlay.catch(error => {
+                    console.log('video has not been played properly.' + generateNameOfProduct(usedIndex) + kindOfAnimation + '.mp4');
+                });
+            }
+        }
+    }
+</script>
+
+<!--MAIN-->
+<div class="container-fluid fullscreen video-background">
+    <div class="row justify-content-center">
+        <video muted autoplay loop class="video" id="intro-video">
+            <source id="intro-video-source" src="" type="video/mp4">
+            Your browser does not support HTML5 video!
+        </video>
+    </div>
+    <div class="row justify-content-center bounce"><a class="fa fa-arrow-down fa-lg" href="#generator"></a></div>
+</div>
+
+<!--BUTTON MENU -->
+<div class="configurator-menu row justify-content-center">
+    <div class="col-md-4">
+        <h5 class="row justify-content-center text-uppercase">Model</h5>
+        <div class="row justify-content-center text-uppercase">
+            <div class="col-auto">
+                <div class="arrow-box">
+                    <button id="mirror-model-prev" onclick="decreaseModelIndex()"
+                            class="fa fa-angle-left fa-lg"></button>
+                </div>
+                <span class="option-box" id="mirror-model">-</span>
+                <div class="arrow-box">
+                    <button id="mirror-model-next" onclick="increaseModelIndex()"
+                            class="fa fa-angle-right fa-lg"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h5 class="row justify-content-center text-uppercase">Frame</h5>
+        <div class="row justify-content-center text-uppercase">
+            <div class="col-auto">
+                <div class="arrow-box">
+                    <button id="frame-color-prev" onclick="decreaseFrameColorIndex()"
+                            class="fa fa-angle-left fa-lg"></button>
+                </div>
+                <span class="option-box" id="frame-color">-</span>
+                <div class="arrow-box">
+                    <button id="frame-color-next" onclick="increaseFrameColorIndex()"
+                            class="fa fa-angle-right fa-lg"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h5 class="row justify-content-center text-uppercase">Color</h5>
+        <div class="row justify-content-center text-uppercase">
+            <div class="col-auto">
+                <div class="arrow-box">
+                    <button id="mirror-color-prev" onclick="decreaseMirrorColorIndex()"
+                            class="fa fa-angle-left fa-lg"></button>
+                </div>
+                <span class="option-box" id="mirror-color">-</span>
+                <div class="arrow-box">
+                    <button id="mirror-color-next" onclick="increaseMirrorColorIndex()"
+                            class="fa fa-angle-right fa-lg"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

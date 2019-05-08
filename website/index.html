@@ -1,0 +1,177 @@
+<!--HEAD-->
+<head>
+    <title>Piaggi Art & Living - Contemporary, designer luxury handmade mirrors.</title>
+
+    <!-- META -->
+    <meta charset="UTF-8">
+    <meta http-equiv="Creation-Date" content="Thu, 1 Mar 2018 00:00:01 GMT">
+    <meta name="author" content="Marcin Kamiński for Piaggi">
+    <meta name="Description"
+          content="Piaggi Art & Living - Contemporary, designer, luxury, handmade mirrors, wall panels, furnitures and more. Piaggi is a European based designer and manufacturer of luxury, uniquely, contemporary decorative products.">
+    <meta name="keywords"
+          content="contemporary,designer,luxury,handmade,mirrors,wall panels,furnitures,store,shop,piaggi,limited,art,living,UK">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ICON -->
+    <link rel="icon" href="/website/images/others/favicon.ico">
+    <link rel="shortcut icon" href="/website/images/others/favicon.ico">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-social.css">
+    <link rel="stylesheet" href="css/piaggi.css">
+
+
+</head>
+<!-- END OF HEAD -->
+
+<!-- BODY -->
+<body>
+<div id="page-overlay" class="justify-content-center"><img class="overlay-logo" src="images/others/logo.png"></div>
+<div id="swipe-overlay"><img src="images/others/SwipeAndTap.png"></div>
+
+<!-- CONFIGURATOR -->
+<div id="generator" class="container fullscreen">
+    <div id='displayed-product' class="justify-content-center">
+        <img id="customized-product" class="configurator-product" src="images/mirrors/RouletteWhiteMulticolorFront.png">
+        <video id="customized-product-video" class="configurator-product-video" muted>
+            <source id="customized-product-video-source" src="" type="video/mp4"/>
+        </video>
+        <video id="customized-product-video2" class="configurator-product-video2" muted>
+            <source id="customized-product-video-source2" src="" type="video/mp4"/>
+        </video>
+        <div class="sizes-text">Product available in different sizes</div>
+    </div>
+
+    <div class="menu">
+        <div id="logo" class="logo">
+            <a href="index.html"><img src="images/others/logo.png"></a>
+        </div>
+        <div id="models" class="menu-section">
+            <h6>models:</h6>
+            <div class="model">
+            <img id="model-Roulette" onclick="changeModel(0)"
+                 src="images/mirrors/RouletteWhiteMulticolorFront.png">
+            <div class="model-name">roulette</div>
+            </div>
+            <div class="model">
+            <img id="model-Stadium" onclick="changeModel(1)"
+                 src="images/mirrors/StadiumWhiteMulticolorFront.png">
+            <div class="model-name">stadium</div>
+            </div>
+            <div class="model">
+            <img id="model-BigQ" onclick="changeModel(2)"
+                 src="images/mirrors/BigQWhiteBlueFront.png">
+            <div class="model-name">bigq</div>
+            </div>
+            <div class="model">
+            <img id="model-Kaleidoscope" onclick="changeModel(3)"
+                 src="images/mirrors/KaleidoscopeWhiteMulticolorFront.png">
+                <div class="model-name">kaleidoscope</div>
+            </div>
+            <div class="model">
+            <img id="model-Barbarella" onclick="changeModel(4)"
+                 src="images/mirrors/BarbarellaWhiteBlueFront.png">
+                <div class="model-name">barbarella</div>
+            </div>
+            <div class="model">
+            <img id="model-Rhombus" onclick="changeModel(5)"
+                 src="images/mirrors/RhombusWhiteMulticolorFront.png">
+                <div class="model-name">rhombus</div>
+            </div>
+            <div class="model">
+            <img id="model-Eclipse" onclick="changeModel(6)"
+                 src="images/mirrors/EclipseWhiteMulticolorFront.png">
+                <div class="model-name">eclipse</div>
+            </div>
+            <div class="model">
+            <img id="model-Disco" onclick="changeModel(7)"
+                 src="images/mirrors/DiscoWhiteMulticolorFront.png">
+                <div class="model-name">disco</div>
+            </div>
+        </div>
+        <div id="colors" class="menu-section">
+            <h6>color:</h6>
+            <div id="color-options">
+            </div>
+        </div>
+        <div id="frames" class="menu-section">
+            <h6>frame:</h6>
+            <img id="frame-White" onclick="changeFrameColor(0)" src="images/frames/White.png">
+            <img id="frame-Dark" onclick="changeFrameColor(1)" src="images/frames/Dark.png">
+            <img id="frame-Light" onclick="changeFrameColor(2)" src="images/frames/Light.png">
+        </div>
+        <div id="views" class="menu-section">
+            <h6>view:</h6>
+            <img id="Front-product-view" onclick="changeProductPreview('Front')"
+                 src="images/mirrors/RouletteWhiteMulticolorFront.png">
+            <img id="Side-product-view" onclick="changeProductPreview('Side')"
+                 src="images/mirrors/RouletteWhiteMulticolorSide.png">
+            <img data-toggle="modal" data-target="#3d-modal-window" id="3d-product-view" class="bounce" onclick="load3d()"
+                 src="images/others/3d.png">
+        </div>
+        <div class="share-and-buy-buttons">
+            <a onclick="openProductPage()" class="btn btn-primary btn-sm"><i
+                    class="fa fa-shopping-cart"></i> BUY </a>
+        </div>
+    </div>
+
+    <div class="sizes"><img id="sizes" src=""></div>
+</div>
+
+
+<!-- FOOTER -->
+<footer class="sticky-bottom footer">
+        <div class="row justify-content-end">
+            <div class="col-md-6">
+                <div class="copyrights">Copyright © 2018 <a href="http://piaggi.co.uk">Piaggi</a>.</div>
+            </div>
+            <div class="col-md-3">
+                <a href="https://www.facebook.com/piaggiartandliving/" class="btn btn-social-icon btn-facebook"><i
+                        class="fa fa-facebook"></i></a>
+                <a href="https://www.instagram.com/piaggiofficial/" class="btn btn-social-icon btn-instagram"><i
+                        class="fa fa-instagram"></i></a>
+                <a href="https://pl.pinterest.com/piaggimirrors/" class="btn btn-social-icon btn-pinterest"><i
+                        class="fa fa-pinterest"></i></a>
+                <a href="http://piaggi.co.uk/store/gb/" class="btn btn-social-icon btn-microsoft"><i
+                        class="fa fa-shopping-cart"></i></a>
+            </div>
+        </div>
+</footer>
+
+<!-- 3D MODAL WINDOW -->
+<div id="3d-modal-window" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="3dModalWindow"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div id="3d-object" class="modal-body">
+                <iframe id="3d-object-frame" src="" name="targetframe" allowTransparency="true"
+                        frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<!-- SCRIPTS -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script data-pace-options='{ "ajax": false }' src='js/pace.min.js'></script>
+<script src="js/pace.min.js"></script>
+<script src="js/generator.js"></script>
+<script src="js/tether.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/hammer.min.js"></script>
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-67469576-1"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="js/ie10-viewport-bug-workaround.js"></script>
+
+</body>
+<!-- END OF BODY -->
+
+</html>
